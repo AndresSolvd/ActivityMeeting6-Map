@@ -1,29 +1,35 @@
-
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
 public class Main {
-    public static void main(Stringmap[] args) {
-        System.out.println("Hello world!");
-        Map<Character, Integer> counts = new HashMap<>();
+    public static void main(String[] args) {
+        Map<Character, Integer> myHashMap = new HashMap<>();
 
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter a string: ");
-        Stringmap input = scanner.nextLine().toLowerCase();
+        String input = scanner.nextLine().toLowerCase();
 
-        public main()
-        throws InvalidCharacterException
-        {
+        try {
+            for (int i = 0; i < input.length(); i++) {
+                char c = input.charAt(i);
+                if (Character.isLetter(c)) {
+                    myHashMap.put(c, myHashMap.getOrDefault(c, 0) + 1);
+                } else {
+                    throw new InvalidCharacterException("Invalid input: only alphabet characters accepted");
+                }
             }
-
-        Map<Character, Integer> countMap = new HashMap<>();
-        for (int i = 0; i < input.length(); i++) {
-            char c = input.charAt(i);
-            if (!Character.isLetter(c)) {
-                System.out.println("Input contains non-letter characters");
-                return;
+            for (Map.Entry<Character, Integer> entry : myHashMap.entrySet()) {
+                System.out.println(entry.getKey() + " - " + entry.getValue());
             }
-            countMap.put(c, countMap.getOrDefault(c, 0) + 1);
+        } catch (InvalidCharacterException e) {
+            System.out.println(e.getMessage());
         }
+    }
+}
 
-
+class InvalidCharacterException extends Exception {
+    public InvalidCharacterException(String message) {
+        super(message);
+    }
 }
