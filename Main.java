@@ -19,8 +19,9 @@ public class Main {
                     throw new InvalidCharacterException("Invalid input: only alphabet characters accepted");
                 }
             }
-            for (Map.Entry<Character, Integer> entry : myHashMap.entrySet()) {
-                System.out.println(entry.getKey() + " - " + entry.getValue());
+
+            for (Character key : myHashMap.keySet()) {
+                System.out.println(key + " - " + myHashMap.get(key));
             }
         } catch (InvalidCharacterException e) {
             System.out.println(e.getMessage());
