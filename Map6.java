@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Main {
+public class Map6 {
     public static void main(String[] args) {
         Map<Character, Integer> myHashMap = new HashMap<>();
 
